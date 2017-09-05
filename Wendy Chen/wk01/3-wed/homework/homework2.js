@@ -23,11 +23,8 @@ function importNames(names){
   studentList = names;
 
 /*
-shuffle studentlist here??!!
+shuffle studentlist here!!!!!
 */
-
-
-
 
   while(studentList.length!=0){
 
@@ -46,31 +43,31 @@ shuffle studentlist here??!!
 }
 
 var studentsAssigned = 0;
+var studentIndex = 0;
 
 function groupByNumOfStudents (noOfStudents){
-
 //looping through groups
-  for (i=0; i<=noOfStudents; i++){
-    while (studentsAssigned!=noOfStudents){
-      //randomly select student for group
-      var rand = Math.floor(Math.random() * myClass.length);
-
-      //assign Student if student is not assigne to group
-      if(myClass[rand].group==0){
-        //Assign students to group
-        myClass[rand].group= (i+1);
-        console.log("group assigned"+(i+1));
-        studentsAssigned =studentsAssigned+1;
-      }
-    }
-  }
+/*
+  for (i=0; i<noOfStudents; i++){
+    myClass[studentIndex].group = i;
+    studentIndex ++;
+  }*/
 }
 
 function groupByNumOfGroups (noOfGroups){
+  var groups = Math.floor((myClass.length)/noOfGroups);
+  //looping through studentsAssigned
+  for(g=1; g<=groups; g++){
+      for (i=0; i<myClass.length; i++){
+        console.log(myClass[i].group);
+      //  if(myClass[i].group == 0){
+      //    myClass.slice(i, 1, g);
+      //  }
+      }
+    }
+}
+importNames("Wendy,Jess,Fiona,Ryan,Darren,");
+//groupByNumOfStudents(2);
+groupByNumOfGroups(2);
 
-};
-
-importNames("Wendy,Jess,Fiona,");
-groupByNumOfStudents(2);
-
-console.log(myClass);
+//console.log(myClass);
