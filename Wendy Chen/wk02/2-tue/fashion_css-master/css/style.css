@@ -1,0 +1,150 @@
+body{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  width:1000px;
+}
+
+header{
+  width: 100%;
+  padding:0;
+}
+
+
+header h1{
+  color: red;
+  font-family: sans-serif;
+  font-size: 50px;
+  font-weight:lighter;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+header h2{
+  padding-left: 20px;
+}
+
+h2{
+  display: inline-block;
+  color: lightgrey;
+  font-family:sans-serif;
+  font-weight:lighter;
+  margin-bottom: 10px;
+}
+
+h3{
+  margin-top: 0;
+  color: grey;
+  font-family:sans-serif;
+  font-weight:lighter;
+  margin-bottom: 10px;
+}
+
+h4{
+  color: grey;
+  font-weight: bold;
+
+}
+
+em{
+  color: red;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 12px;
+}
+
+nav ul{
+  padding:0px;
+}
+
+nav li{
+  font-family:sans-serif;
+  font-weight: lighter;
+  list-style: none;
+  margin: 0;
+  display: inline-block;
+  border-right: 1px solid white;
+
+  color: white;
+  background-color: black;
+
+  text-align: center;
+
+  padding-left: 10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:10px;
+
+  width:12.5%;
+}
+
+.Container{
+  width: 100%;
+}
+
+main{
+  display: inline-block;
+  width: 70%;
+  height:100%;
+}
+
+main article img {
+  width:100%;
+}
+
+aside{
+  display: inline-block;
+  vertical-align: top;
+  width:20%;
+  height:100%;
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+
+aside article li {
+  color: red;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.Advert{
+  background-color: lightgrey;
+  color: grey;
+  text-align: center;
+}
+.Advert p {
+  padding:70px;
+  font-size: 40px;
+}
+
+article footer {
+  text-align: right;
+}
+
+footer {
+  text-align: left;
+  color: lightgrey;
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 12px;
+
+}
+
+footer ul {
+  padding-left: 0px;
+}
+
+footer li{
+  list-style: none;
+  margin-left: 0;
+  margin-left: 0px;
+  display: inline-block;
+  padding-right: 5px;
+  border-right: 1px;
+  border-right-style: solid;
+  border-color: lightgrey;
+  color: red;
+  border-right:last-child: 0px;
+}
