@@ -16,16 +16,14 @@ var studentProfile = {};
 var noOfGroups;
 var noOfStudents;
 
-var studentList;
+var studentList = [];
 
 //import names of people into array
 function importNames(names){
   studentList = names;
-
 /*
 shuffle studentlist here!!!!!
 */
-
   while(studentList.length!=0){
 
       if (studentList.indexOf(",") > 0){ // extract a student name from studentList
@@ -35,39 +33,41 @@ shuffle studentlist here!!!!!
         }
 
         myClass.push(studentProfile); // studentProfile into myClass array
-
         // remove student name and ',' from studentList
         studentList = studentList.slice((studentList.indexOf(",")+1), studentList.length);
       }
   }
 }
-
-var studentsAssigned = 0;
-var studentIndex = 0;
-
-function groupByNumOfStudents (noOfStudents){
-//looping through groups
 /*
-  for (i=0; i<noOfStudents; i++){
-    myClass[studentIndex].group = i;
-    studentIndex ++;
-  }*/
-}
-
-function groupByNumOfGroups (noOfGroups){
-  var groups = Math.floor((myClass.length)/noOfGroups);
-  //looping through studentsAssigned
-  for(g=1; g<=groups; g++){
-      for (i=0; i<myClass.length; i++){
-        console.log(myClass[i].group);
-      //  if(myClass[i].group == 0){
-      //    myClass.slice(i, 1, g);
-      //  }
+function groupByNumOfStudents (noOfStudents){
+  for (stud = 1; stud <= noOfStudents; stud++){
+    console.log(stud);
+    for (i=0; i<myClass.length; i++){
+      if(myClass[i].group == 0){
+        myClass[i].group = stud;
       }
     }
 }
-importNames("Wendy,Jess,Fiona,Ryan,Darren,");
-//groupByNumOfStudents(2);
-groupByNumOfGroups(2);
+}*/
 
-//console.log(myClass);
+function groupByNumOfGroups (noOfGroups){
+  var startGroup = 0;
+
+  //looping through studentsAssigned
+      for (i=0; i<myClass.length; i++){
+        if(startGroup == noOfGroups){
+          startGroup = 0;
+        }
+        startGroup = startGroup +1;
+        for(g=startGroup; g<=noOfGroups; g++){
+          if(myClass[i].group == 0){
+            myClass[i].group = g;
+          }
+        }
+      }
+    }
+
+console.log(myClass);
+importNames("Wendy,Jess,Fiona,Ryan,Darren,pauline,");
+groupByNumOfGroups(2);
+//groupByNumOfStudents(2);
