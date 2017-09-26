@@ -1,0 +1,32 @@
+Figure out the appropriate SQL commands to find out the following, and keep track of them in the file called sql_commands.txt
+
+Q) All columns for all players from the New York Knicks (NYK)
+A) select * from players where team like 'NYK';
+
+Q) All columns for all players from the Indiana Packers (IND) who are under 26 years old
+A) select * from players where age < 26;
+
+Q) All columns for all players, ordered from least points scored to most points scored
+A) SELECT * from players ORDER BY points;
+
+Q) Name and Points per game (points/games), for the players with the top 20 points per game
+A) select name, points from players order by points desc limit 20;
+
+Q) The average age for all players
+A) SELECT AVG(age) FROM players;
+
+Q) The average age for all players on the Oklahoma City Thunder (OKC)
+A) SELECT AVG(age) FROM players where team like 'OKC';
+
+Q) The average age for all players who played more than 40 games
+A) SELECT AVG(age) FROM players where games > 40;
+
+Q) The team and total points scored from all players on that team (team points), ordered from most team points to least
+A) SELECT team, sum(points) as totalPoint FROM players group by team order by totalPoint;
+
+###Bonus
+Q) Age and the average points per game for that age, ordered from youngest to oldest
+A) SELECT age, AVG(points) FROM players group by age;
+
+Q) Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+A) SELECT team, count(name)as cname FROM players where points >12 group by team order by cname desc;
