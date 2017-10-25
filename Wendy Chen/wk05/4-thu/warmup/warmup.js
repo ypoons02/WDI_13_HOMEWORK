@@ -10,3 +10,12 @@
 
 //spiner("The_Andy_Griffith_Show")
 --> // "the-andy-griffith-show"
+
+function spiner(str) {
+  var output = str.toLowerCase();
+  output = output.split(" ");
+  output = output.join("-");
+  console.log(output);
+}
+
+spiner("The_Andy_Griffith_Show");

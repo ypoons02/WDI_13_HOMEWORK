@@ -17,6 +17,7 @@
 
 #require 'httparty'
 #result = HTTParty.get('http://omdbapi.com/?t=once&apikey=insert_key')
+#http://omdbapi.com/?t=Jaws&apikey=2f6435d9
 
 #Additional Resources
 #Dynamic URLs in Sinatra (http://blog.teamtreehouse.com/ruby-sinatra-dynamic-urls-tutorial)
@@ -28,13 +29,24 @@ require 'pry'
 require 'httparty' # allows you to go to other websites and pull data down from their server
 
  get '/' do
-   erb (:index) #calling the index file in the views folder by default
+   erb :layout #calling the index file in the views folder by default
  end
 
- get '/about' do
+ get '/aboutMovie' do
    #binding.pry #debugg . to find the values of the parameters, type "params" at the console log
-   @num1 = params[:num1].to_i
-   @num2 = params[:num2].to_i
-   @num3 = @num1 + @num2
-   erb :answer
+   @movieName = params[:movie_name]
+   results = HTTParty.get("http://omdbapi.com/?t=#{@movieName}&apikey=2f6435d9")
+
+   @title = "Movie title: #{results["Title"]} Year: #{results["Year"]} Rated: #{results["Rated"]} Released: #{results["Released"]} Runtime: #{results["Runtime"]}"
+   @genre = "Genre: #{results["Genre"]} Director: #{results["Director"]}"
+   @writer ="Writer: #{results["Writer"]} Language: #{results["Language"]}"
+   @poster = results["Poster"]
+   @ratings = results["Ratings"]
+
+   for i in 1..@ratings.length
+     i = i.to_i - 1
+     @ratings_each = "#{@ratings_each} #{@ratings[i]["Source"]} #{@ratings[i]["Value"]} \n "
+   end
+
+   erb :layout
  end
